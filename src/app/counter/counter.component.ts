@@ -13,14 +13,10 @@ export class CounterComponent implements OnInit {
   ngOnInit() {}
 
   increment() {
-    this.total += 1;
     this.store.dispatch({ type: "INCREMENT", payload: 1 });
   }
 
   decrement() {
-    if (this.total > 0) {
-      this.total -= 1;
-      // this.store.dispatch({ type: "DECREMENT", payload: -1 });
-    }
+    this.store.dispatch({ type: "DECREMENT", payload: 1 });
   }
 }

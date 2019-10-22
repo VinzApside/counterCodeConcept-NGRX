@@ -7,10 +7,15 @@ import { CounterComponent } from "./counter/counter.component";
 
 //NgRx
 import { StoreModule } from "@ngrx/store";
+import { reducer } from "src/state/app.reducer";
 
 @NgModule({
   declarations: [AppComponent, CounterComponent],
-  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot({})],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot({ appState: reducer })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

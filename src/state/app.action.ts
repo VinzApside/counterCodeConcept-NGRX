@@ -18,3 +18,5 @@ export class DecrementCounter implements Action {
 
   constructor(public payload: number) {}
 }
+
+export type CounterActions = IncrementCounter | DecrementCounter;

@@ -1,5 +1,6 @@
 import { State } from "./app.state";
 import { Detail } from "../models/details";
+import { CounterActionTypes, CounterActions } from "./app.action";
 
 const initialState: State = {
   count: 0,
@@ -7,10 +8,10 @@ const initialState: State = {
   details: []
 };
 
-export function reducer(state = initialState, action) {
+export function reducer(state = initialState, action: CounterActions) {
   console.log("in reducer =>", action);
   switch (action.type) {
-    case "[Counter] Increment":
+    case CounterActionTypes.Increment:
       return {
         ...state,
         count: state.count + action.payload,
@@ -20,7 +21,7 @@ export function reducer(state = initialState, action) {
         ]
       };
 
-    case "[Counter] Decrement":
+    case CounterActionTypes.Decrement:
       return {
         ...state,
         count: state.count - action.payload,

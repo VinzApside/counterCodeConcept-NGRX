@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 
 @Component({
   selector: "cc-counter",
@@ -7,10 +7,15 @@ import { Store } from "@ngrx/store";
   styleUrls: ["./counter.component.scss"]
 })
 export class CounterComponent implements OnInit {
-  total: number = 0;
+  total: number;
   constructor(private store: Store<any>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.pipe(select("appState")).subscribe(data => {
+      console.log(data);
+      this.total = data.count;
+    });
+  }
 
   increment() {
     this.store.dispatch({ type: "INCREMENT", payload: 1 });

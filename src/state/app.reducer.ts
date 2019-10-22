@@ -9,19 +9,17 @@ export function reducer(state = initialState, action) {
   console.log("in reducer =>", action);
   switch (action.type) {
     case "INCREMENT":
-      const newStateInc = {
+      return {
         ...state,
         count: state.count + action.payload
       };
-      console.log(newStateInc);
-      return newStateInc;
+
     case "DECREMENT":
-      const newStateDec = {
+      return {
         ...state,
         count: state.count - action.payload
       };
-      console.log(newStateDec);
-      return newStateDec;
+
     default:
       return state;
   }

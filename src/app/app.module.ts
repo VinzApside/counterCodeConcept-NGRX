@@ -7,6 +7,7 @@ import { CounterComponent } from "./counter/counter.component";
 
 //NgRx
 import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { reducer } from "src/state/app.reducer";
 
 @NgModule({
@@ -14,7 +15,11 @@ import { reducer } from "src/state/app.reducer";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ appState: reducer })
+    StoreModule.forRoot({ appState: reducer }),
+    StoreDevtoolsModule.instrument({
+      name: "Counterx devtools",
+      maxAge: 15
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

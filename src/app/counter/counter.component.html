@@ -5,3 +5,9 @@
 <div>
   {{ total }}
 </div>
+<div *ngIf="allDetails">
+  <div *ngFor="let details of allDetails">
+    {{ details.date.toISOString() }} s'est produit un
+    <b> {{ details.buttonClicked }} </b>
+  </div>
+</div>
